@@ -10,8 +10,6 @@ import { galleryItems } from './gallery-items';
 
 const galleryEl = document.querySelector('.gallery');
 
-
-
 function createGalleryList(galleryItems) {
 
   return galleryItems.map(({ preview, original, description }) => {
@@ -30,7 +28,10 @@ const lightbox = new SimpleLightbox('.gallery a', {
   animationSpeed: 500,
   captionPosition: 'top',
   captionsData: 'alt',
-  
+  docClose: 'false'
 });
-
+function onEscapeClose(evt){
+    if (evt.code!=='Escape')return;
+    modal.close()
+  }
 
